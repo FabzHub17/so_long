@@ -41,7 +41,9 @@ typedef struct s_player
     int     collected;
 }           t_player;
 
-
+// MAP UTILS
+void free_str_array(char **arr);
+void free_map(t_map *map);
 
 
 #endif
