@@ -3,6 +3,8 @@
 
 #include <fcntl.h> 
 #include <stdlib.h>
+#include <unistd.h>
+#include "../libft/libft.h"
 
 // MAP
 #define WALL '1'
@@ -40,6 +42,9 @@ typedef struct s_player
     int     y;
     int     collected;
 }           t_player;
+
+// ERRORS
+int print_error(char *msg);
 
 // MAP UTILS
 void free_str_array(char **arr);
