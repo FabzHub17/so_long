@@ -50,5 +50,8 @@ int print_error(char *msg);
 void free_str_array(char **arr);
 void free_map(t_map *map);
 
+// GAME
+void init_game(t_game *game, t_map *map);
+int exit_game(t_game *game, char *msg);
 
 #endif
