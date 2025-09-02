@@ -50,6 +50,9 @@ int print_error(char *msg);
 void free_str_array(char **arr);
 void free_map(t_map *map);
 
+// RENDER
+void render_map(t_game *game);
+
 // GAME
 void init_game(t_game *game, t_map *map);
 int exit_game(t_game *game, char *msg);
