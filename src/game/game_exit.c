@@ -37,7 +37,7 @@ int exit_game(t_game *game, char *msg)
 {
     destroy_textures(game);
     if(game->win)
-        mlx_destroy_windows(game->mlx, game->win);
+        mlx_destroy_window(game->mlx, game->win);
     if(game->mlx)
     {
         mlx_destroy_display(game->mlx);

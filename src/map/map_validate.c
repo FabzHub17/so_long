@@ -1,6 +1,6 @@
 #include "./../../includes/so_long.h"
 
-static int check_elemnts(t_map *map)
+static int check_elements(t_map *map)
 {
     if(map->players != 1)
         return(0);

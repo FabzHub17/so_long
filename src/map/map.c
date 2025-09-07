@@ -1,4 +1,5 @@
-#include "./../../includes/so_long.h"
+#include "../../includes/so_long.h"
+#include "./get_next_line.h"
 
 static char **append_line(char **tmp_array, char *line, int count)
 {
@@ -31,6 +32,10 @@ static char **read_file(int fd)
     count = 0;
     len = 0;
     line = get_next_line(fd);
+    if (!line) { // ADDED LATER AS A PRECAUTION!!
+        print_error("File is empty");
+        return NULL;
+    }
     while(line)
     {
         len = ft_strlen(line);
@@ -76,13 +81,24 @@ t_map *load_map(char *file)
     
     tmp_array = NULL;
 
+    // Add this check before trying to open
+    if (access(file, F_OK) != 0) {
+        print_error("File does not exist");
+        return NULL;
+    }
+    if (access(file, R_OK) != 0) {
+        print_error("No read permission for file");
+        return NULL;
+    }
+    //----------------------------
+
     fd = open(file, O_RDONLY);
     if(fd < 0)
-        return(NULL);
+        return(print_error("Error opening file"),NULL); // Add this for detailed error
     tmp_array = read_file(fd);
     close(fd);
     if(!tmp_array)
-        return(NULL);
+        return(print_error("Failed to read file content"),NULL);
     
     map = malloc(sizeof(t_map));
     if(!map)

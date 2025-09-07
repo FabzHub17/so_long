@@ -40,11 +40,11 @@ static void load_textures(t_game *game)
             "assets/player.xpm", &w, &h);
     game->textures[TX_EXIT] = mlx_xpm_file_to_image(game->mlx,
             "assets/exit.xpm", &w, &h);
-    game->textures[TX_COLL] = mlx_xpm_file_to_image(game->mlx,
+    game->textures[TX_COLLECTIBLE] = mlx_xpm_file_to_image(game->mlx,
             "assets/collectible.xpm", &w, &h);
     if (!game->textures[TX_WALL] || !game->textures[TX_FLOOR]
         || !game->textures[TX_PLAYER] || !game->textures[TX_EXIT]
-        || !game->textures[TX_COLL])
+        || !game->textures[TX_COLLECTIBLE])
     {
         exit_game(game, "Error: failed to load textures");
     }
