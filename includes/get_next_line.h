@@ -27,7 +27,7 @@ char	*read_to_buffer(int fd, char *stash);
 char	*extract_line(char *stash);
 char	*update_buffer(char *stash);
 
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *s, int c);
 void	*ft_calloc(size_t elementCount, size_t elementSize);

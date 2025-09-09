@@ -32,16 +32,16 @@ static void load_textures(t_game *game)
     int w;
     int h;
 
-     game->textures[TX_WALL] = mlx_xpm_file_to_image(game->mlx,
-            "assets/wall.xpm", &w, &h);
+    game->textures[TX_WALL] = mlx_xpm_file_to_image(game->mlx,
+            "textures/wall.xpm", &w, &h);
     game->textures[TX_FLOOR] = mlx_xpm_file_to_image(game->mlx,
-            "assets/floor.xpm", &w, &h);
+            "textures/floor.xpm", &w, &h);
     game->textures[TX_PLAYER] = mlx_xpm_file_to_image(game->mlx,
-            "assets/player.xpm", &w, &h);
+            "textures/player.xpm", &w, &h);
     game->textures[TX_EXIT] = mlx_xpm_file_to_image(game->mlx,
-            "assets/exit.xpm", &w, &h);
+            "textures/exit.xpm", &w, &h);
     game->textures[TX_COLLECTIBLE] = mlx_xpm_file_to_image(game->mlx,
-            "assets/collectible.xpm", &w, &h);
+            "textures/collectible.xpm", &w, &h);
     if (!game->textures[TX_WALL] || !game->textures[TX_FLOOR]
         || !game->textures[TX_PLAYER] || !game->textures[TX_EXIT]
         || !game->textures[TX_COLLECTIBLE])
@@ -51,7 +51,7 @@ static void load_textures(t_game *game)
 
 }
 
-static void find_player(t_game *game)
+void find_player(t_game *game)
 {
     int x;
     int y;
@@ -66,8 +66,7 @@ static void find_player(t_game *game)
             {
                 game->player.x = x;
                 game->player.y = y;
-                game->player.collected = 0; // should this be here???
-                return ;
+                return;
             }
             x++;
         }
@@ -85,6 +84,7 @@ void init_game(t_game *game, t_map *map)
         exit_game(game, "Error: window creation failed");
     game->map  = map;
     game->moves = 0;
+    game->player.collected = 0; // should this be here???
     find_player(game);
     load_textures(game);
 }

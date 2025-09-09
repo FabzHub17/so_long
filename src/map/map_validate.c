@@ -52,13 +52,16 @@ static int check_rectangle(t_map *map)
 int validate_map(t_map *map)
 {
     if(!check_rectangle(map))
-        return (print_error("map not is rectangular"), 0);
+        return (print_error("Map not is rectangular"), 0);
     if(!check_walls(map))
-        return (print_error("map not fully enclosed by walls"), 0);
+        return (print_error("Map not fully enclosed by walls"), 0);
     if(!check_elements(map))
-        return (print_error("invalid number of P/E/C"), 0);
+        return (print_error("Invalid number of P/E/C"), 0);
 
-    // controllo del percorso valido: DA FARE
+    if(!check_path(map))
+        return (print_error("No valid path to collect all items and exit"), 0);
 
+    
     return(1);
 }
+

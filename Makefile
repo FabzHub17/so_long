@@ -15,10 +15,10 @@ OBJ_PATH	= ./obj/
 
 # Sources
 SRC_FILES	= main.c \
-			  map/map.c map/map_validate.c \
+			  map/map.c map/map_validate.c map/map_validate_path.c \
 			  game/game.c game/game_input.c game/game_exit.c \
 			  render/render.c \
-			  utils/utils.c  utils/ft_itoa.c \
+			  utils/utils.c  utils/utils2.c utils/ft_itoa.c \
 			  utils/ft_printf.c utils/ft_printf_utils.c utils/ft_print_u.c \
 			  utils/ft_print_p.c utils/ft_print_int.c utils/ft_print_hex.c \
 			  utils/get_next_line.c utils/get_next_line_utils.c

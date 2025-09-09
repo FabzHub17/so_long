@@ -41,9 +41,6 @@ static void draw_cell(t_game *game, int x, int y)
 
 void render_map(t_game *game)
 {
-    // Add debug print to see what path is being used
-    ft_printf("Was here in the rendering part :)"); // Add this line
-
     int x;
     int y;
 

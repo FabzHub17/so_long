@@ -80,21 +80,9 @@ t_map *load_map(char *file)
     t_map   *map;
     
     tmp_array = NULL;
-
-    // Add this check before trying to open
-    if (access(file, F_OK) != 0) {
-        print_error("File does not exist");
-        return NULL;
-    }
-    if (access(file, R_OK) != 0) {
-        print_error("No read permission for file");
-        return NULL;
-    }
-    //----------------------------
-
     fd = open(file, O_RDONLY);
     if(fd < 0)
-        return(print_error("Error opening file"),NULL); // Add this for detailed error
+        return(print_error("Error in opening file"),NULL); // Add this for detailed error
     tmp_array = read_file(fd);
     close(fd);
     if(!tmp_array)

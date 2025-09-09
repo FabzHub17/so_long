@@ -61,12 +61,17 @@ typedef struct s_game
 void free_str_array(char **arr);
 void free_map(t_map *map);
 int print_error(char *msg);
+void	*ft_memset(void *ptr, int c, size_t n);
+char	*ft_strdup(const char *s);
+int	check_ext(char *filename);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 
 
 // MAP
 t_map *load_map(char *file);
 int validate_map(t_map *map);
+int check_path(t_map *map);
 
 
 // RENDER
@@ -76,5 +81,7 @@ void render_map(t_game *game);
 void init_game(t_game *game, t_map *map);
 int handle_input(int keycode, t_game *game);
 int exit_game(t_game *game, char *msg);
+int window_close(t_game *game);
+void find_player(t_game *game);
 
 #endif
