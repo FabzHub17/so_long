@@ -1,21 +1,33 @@
-#ifndef SO_LONG_H
-#define SO_LONG_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tvithara <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/09 19:58:27 by tvithara          #+#    #+#             */
+/*   Updated: 2025/09/09 19:58:30 by tvithara         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <fcntl.h> 
-#include <stdlib.h>
-#include <unistd.h>
-#include "./get_next_line.h"
-#include "./ft_printf.h"
-#include "../minilibx/mlx.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+# include "../minilibx/mlx.h"
+# include "./ft_printf.h"
+# include "./get_next_line.h"
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 // MAP
-#define WALL '1'
-#define EMPTY '0'
-#define PLAYER 'P'
-#define EXIT 'E'
-#define COLLECTIBLE 'C'
+# define WALL '1'
+# define EMPTY '0'
+# define PLAYER 'P'
+# define EXIT 'E'
+# define COLLECTIBLE 'C'
 
-// Indici per l’array di textures
+// Inexes for textures array
 # define TX_FLOOR 0
 # define TX_WALL 1
 # define TX_PLAYER 2
@@ -24,64 +36,55 @@
 
 # define TILE_SIZE 32
 
-
-// t_map (serve per gestire la mappa, verificarla, validarla e usarla nel rendering)
 typedef struct s_map
 {
-    char        **grid;
-    int         width;
-    int         height;
-    int         collectibles;
-    int         exits;
-    int         players;
-}               t_map;
+	char		**grid;
+	int			width;
+	int			height;
+	int			collectibles;
+	int			exits;
+	int			players;
+}				t_map;
 
-// t_player (tiene traccia della posizione del player e degli oggetti raccolti)
 typedef struct s_player
 {
-    int     x;
-    int     y;
-    int     collected;
-}           t_player;
+	int			x;
+	int			y;
+	int			collected;
+}				t_player;
 
-// t_game (struttura principale che contiene lo stato globale del gioco)
 typedef struct s_game
 {
-    void        *mlx;
-    void        *win;
-    t_map       *map;
-    t_player    player;
-    int         moves;
-    void        *textures[5]; // floor, wall, collectibles, player, exit
-}               t_game;
-
-
+	void		*mlx;
+	void		*win;
+	t_map		*map;
+	t_player	player;
+	int			moves;
+	void		*textures[5];
+}				t_game;
 
 // UTILS
-void free_str_array(char **arr);
-void free_map(t_map *map);
-int print_error(char *msg);
-void	*ft_memset(void *ptr, int c, size_t n);
-char	*ft_strdup(const char *s);
-int	check_ext(char *filename);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-
-
+void			free_str_array(char **arr);
+void			free_map(t_map *map);
+int				print_error(char *msg);
+void			*ft_memset(void *ptr, int c, size_t n);
+char			*ft_strdup(const char *s);
+int				check_ext(char *filename);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 // MAP
-t_map *load_map(char *file);
-int validate_map(t_map *map);
-int check_path(t_map *map);
-
+t_map			*load_map(char *file);
+int				validate_map(t_map *map);
+int				check_path(t_map *map);
 
 // RENDER
-void render_map(t_game *game);
+void			render_map(t_game *game);
 
 // GAME
-void init_game(t_game *game, t_map *map);
-int handle_input(int keycode, t_game *game);
-int exit_game(t_game *game, char *msg);
-int window_close(t_game *game);
-void find_player(t_game *game);
+void			init_game(t_game *game, t_map *map);
+int				handle_input(int keycode, t_game *game);
+int				exit_game(t_game *game, char *msg);
+int				window_close(t_game *game);
+void			find_player(t_game *game);
 
 #endif

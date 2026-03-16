@@ -1,9 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tvithara <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/09/09 20:03:08 by tvithara          #+#    #+#              #
+#    Updated: 2025/09/09 20:03:10 by tvithara         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # Name of the executable
 NAME		= so_long
 
 # Compilation flags
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -Iincludes -Iminilibx -g
+CFLAGS		= -Wall -Wextra -Werror -Iincludes 
 
 # Remove files
 RM			= rm -f

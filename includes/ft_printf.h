@@ -15,16 +15,16 @@
 
 # include <stdarg.h>
 
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 
-int	ft_putchar(char c);
-int	ft_putstr(char *str);
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
 
-int	ft_putptr(void *ptr);
-int	ft_putint(int num);
-int	ft_puthex(unsigned int num, char c);
+int		ft_putptr(void *ptr);
+int		ft_putint(int num);
+int		ft_puthex(unsigned int num, char c);
 
-int	ft_put_u(unsigned int num);
+int		ft_put_u(unsigned int num);
 
 char	*ft_itoa(int n);
 #endif
